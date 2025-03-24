@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { PetsService } from './pets.service';
-import { Pet } from './pet.entity';
+import { Pet } from './entities/pet.entity';
 import { PetInput } from './dto/pet-input.dto';
 
 @Resolver(of => Pet)

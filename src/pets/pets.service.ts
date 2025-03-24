@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Pet } from './pet.entity';
+import { Pet } from './entities/pet.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PetInput } from './dto/pet-input.dto';
@@ -14,6 +14,6 @@ export class PetsService {
     }
 
     async getAllPets(): Promise<Pet[]> {
-        return this.petsRepository.find();
+        return this.petsRepository.find({ relations: { owner: true } });
     }
 }
